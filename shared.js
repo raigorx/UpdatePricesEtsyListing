@@ -29,7 +29,7 @@ window.sharedModule = {
 
     document.body.appendChild(button)
   },
-  createShowAppStateButton: function () {
+  createShowAppStateButton: function (appGlobalState) {
     const label = document.createElement('label')
     label.setAttribute('for', 'currentPage')
     label.textContent = 'Current Page'
