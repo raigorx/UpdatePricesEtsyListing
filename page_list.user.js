@@ -5,6 +5,7 @@
 // @description  Automatically clicks on links with "mug" in the title on the specified webpage
 // @author       Raigorx Hellscream
 // @match        https://www.etsy.com/your/shops/me/tools/listings/page:*
+// @match        https://www.etsy.com/your/shops/me/tools/listings
 // @grant        none
 // @require https://raw.githubusercontent.com/raigorx/UpdatePricesEtsyListing/main/shared.js
 // @top-level-await
@@ -244,9 +245,11 @@ const observer = new MutationObserver(async function () {
       elements.forEach(element => {
         if (element.textContent.toLowerCase().includes('mug')) {
           const link = element.closest('a')
-          appGlobalState.globals.itemsStateInfo[link] = {
-            page: appGlobalState.globals.currentPage,
-            status: itemStatus.NO_PROCESSED
+          if (!appGlobalState.globals.itemsStateInfo[link]) {
+            appGlobalState.globals.itemsStateInfo[link] = {
+              page: appGlobalState.globals.currentPage,
+              status: itemStatus.NO_PROCESSED
+            }
           }
           link.href += '#variations'
           appGlobalState.listEdit.listEditLinks.push(link.href)
