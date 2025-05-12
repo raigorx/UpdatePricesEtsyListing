@@ -75,7 +75,7 @@ function createItemsFoundsInput () {
   input.style.left = '10px'
   input.style.zIndex = '9999'
   input.style.padding = '10px'
-  input.style.width = '50px'
+  input.style.width = '80px'
   input.style.backgroundColor = '#000'
   input.style.color = '#FFF'
   input.style.border = '1px solid #ccc'
